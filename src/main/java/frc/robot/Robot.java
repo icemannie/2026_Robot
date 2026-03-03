@@ -50,6 +50,9 @@ public class Robot extends LoggedRobot {
   public static PathPlannerPath R_NeutralR_Intake_Full_Midline;
   public static PathPlannerPath R_NeutralR_Intake_Full_Midline_Flip;
   public static PathPlannerPath R_StartR_To_NeutralR_Intake_Midline;
+  public static PathPlannerPath R_StartR_To_NeutralR_Intake_Disrupt;
+  public static PathPlannerPath R_NeutralR_Intake_Full_Disrupt;
+  public static PathPlannerPath R_NeutralR_Intake_Full_Disrupt_Flip;
 
   public Robot() {
     Logger.recordMetadata("ProjectName", BuildConstants.MAVEN_NAME); // Set a metadata value
@@ -191,6 +194,13 @@ public class Robot extends LoggedRobot {
           PathPlannerPath.fromPathFile("R_NeutralR_Intake_Full_Midline_Flip");
       R_StartR_To_NeutralR_Intake_Midline =
           PathPlannerPath.fromPathFile("R_StartR_To_NeutralR_Intake_Midline");
+      R_StartR_To_NeutralR_Intake_Disrupt =
+          PathPlannerPath.fromPathFile("R_StartR_To_NeutralR_Intake_Disrupt");
+      R_NeutralR_Intake_Full_Disrupt =
+          PathPlannerPath.fromPathFile("R_NeutralR_Intake_Full_Disrupt");
+      R_NeutralR_Intake_Full_Disrupt_Flip =
+          PathPlannerPath.fromPathFile("R_NeutralR_Intake_Full_Disrupt_Flip");
+
 
     } catch (Exception e) {
       DriverStation.reportError("Failed to load PathPlanner path - " + e.getMessage(), true);

@@ -1,9 +1,12 @@
 package frc.robot.autonomous;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.autonomous.modes.CDepotOutpost;
 import frc.robot.autonomous.modes.DoNothing;
+import frc.robot.autonomous.modes.RDisruptSweepShoot;
 import frc.robot.autonomous.modes.RFullSweepShoot;
 import frc.robot.autonomous.modes.RHalfSweepShoot;
+import frc.robot.autonomous.modes.RMidlineSweepShoot;
 import frc.robot.constants.Constants;
 import frc.robot.constants.Constants.Mode;
 import frc.robot.subsystems.Simulator;
@@ -25,13 +28,15 @@ public class AutonomousSelector {
 
   public enum AutoName {
     DO_NOTHING,
-    CENTER_DEPOT_OUTPOST,
+    C_DEPOT_OUTPOST,
     R_FULL_SWEEP_SHOOT,
     R_HALF_SWEEP_SHOOT,
     R_MIDLINE_SWEEP_SHOOT,
+    R_DISRUPT_SWEEP_SHOOT,
     R_FULL_SWEEP_SHOOT_OD,
     R_HALF_SWEEP_SHOOT_OD,
-    R_MIDLINE_SWEEP_SHOOT_OD
+    R_MIDLINE_SWEEP_SHOOT_OD,
+    R_DISRUPT_SWEEP_SHOOT_OD
   }
 
   private class Auto {
@@ -59,7 +64,11 @@ public class AutonomousSelector {
         List.of(
             new Auto(AutoName.DO_NOTHING, new DoNothing(hood)),
             new Auto(AutoName.R_FULL_SWEEP_SHOOT, new RFullSweepShoot(drive, led, intake)),
-            new Auto(AutoName.R_HALF_SWEEP_SHOOT, new RHalfSweepShoot(drive, led, intake)));
+            new Auto(AutoName.R_HALF_SWEEP_SHOOT, new RHalfSweepShoot(drive, led, intake)),
+            new Auto(AutoName.R_MIDLINE_SWEEP_SHOOT, new RMidlineSweepShoot(drive, led, intake)),
+            new Auto(AutoName.R_DISRUPT_SWEEP_SHOOT, new RDisruptSweepShoot(drive, led, intake)),
+            new Auto(AutoName.C_DEPOT_OUTPOST, new CDepotOutpost(drive, led, intake))
+          );
 
     for (Auto nextAuto : autos) {
       if (nextAuto.name == defaultAuto) {

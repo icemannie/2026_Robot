@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.5,
-        "y": 5.95
+        "x": 9.0,
+        "y": 6.5
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.7969472182596298,
-        "y": 4.520199714693296
+        "x": 8.657334767615207,
+        "y": 6.512298807113317
       },
       "isLocked": false,
-      "linkedName": "C.Depot"
+      "linkedName": "R.Neutral.Intake.Disrupt.Full"
     },
     {
       "anchor": {
-        "x": 0.5,
-        "y": 0.6515406562054205
+        "x": 7.3520722891566255,
+        "y": 6.329819277108434
       },
       "prevControl": {
-        "x": 2.8098858773181172,
-        "y": 3.148701854493583
+        "x": 7.700543427522135,
+        "y": 6.251845664163031
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "R.Neutral.Intake.Full.Flip"
     }
   ],
   "rotationTargets": [],
@@ -33,7 +33,7 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.0,
+    "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
@@ -41,14 +41,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": -90.0
+    "velocity": 3.0,
+    "rotation": -109.09349200048563
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
-    "velocity": 0,
-    "rotation": 180.0
+    "velocity": 5.0,
+    "rotation": 119.99999999999999
   },
-  "useDefaultConstraints": false
+  "useDefaultConstraints": true
 }
