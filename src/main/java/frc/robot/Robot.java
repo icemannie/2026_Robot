@@ -201,7 +201,6 @@ public class Robot extends LoggedRobot {
       R_NeutralR_Intake_Full_Disrupt_Flip =
           PathPlannerPath.fromPathFile("R_NeutralR_Intake_Full_Disrupt_Flip");
 
-
     } catch (Exception e) {
       DriverStation.reportError("Failed to load PathPlanner path - " + e.getMessage(), true);
       System.exit(1);
