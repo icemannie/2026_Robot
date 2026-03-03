@@ -35,6 +35,10 @@ public final class Constants {
 
   public static final double loopPeriodSecs = 0.02;
 
+  // only set this if loop cycles are significantly below 20 ms
+  // to avoid starvation of critical processes
+  public static final boolean realTimeCommandScheduler = false;
+
   public static enum Mode {
     /** Running on a real robot. */
     REAL,
