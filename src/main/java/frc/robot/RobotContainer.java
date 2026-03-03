@@ -70,6 +70,7 @@ import frc.robot.subsystems.shooter.turret.TurretIOTalonFx;
 import frc.robot.subsystems.vision.visionGlobalPose.VisionGlobalPose;
 import frc.robot.subsystems.vision.visionGlobalPose.VisionGlobalPoseIO;
 import frc.robot.subsystems.vision.visionGlobalPose.VisionGlobalPoseIOPhoton;
+import frc.robot.subsystems.vision.visionGlobalPose.VisionGlobalPoseIOSim;
 import frc.robot.subsystems.vision.visionObjectDetection.VisionObjectDetection;
 import frc.robot.subsystems.vision.visionObjectDetection.VisionObjectDetectionIO;
 import frc.robot.subsystems.vision.visionObjectDetection.VisionObjectDetectionIOPhoton;
@@ -266,10 +267,22 @@ public class RobotContainer {
                     new VisionGlobalPoseIO() {})
                 : new VisionGlobalPose(
                     drive,
-                    new VisionGlobalPoseIO() {},
-                    new VisionGlobalPoseIO() {},
-                    new VisionGlobalPoseIO() {},
-                    new VisionGlobalPoseIO() {}); // TODO make sim for this
+                    new VisionGlobalPoseIOSim(
+                        Constants.VisionGlobalPose.frontRightName,
+                        drive::getPose,
+                        Constants.VisionGlobalPose.frontRightTransform),
+                    new VisionGlobalPoseIOSim(
+                        Constants.VisionGlobalPose.frontLeftName,
+                        drive::getPose,
+                        Constants.VisionGlobalPose.frontLeftTransform),
+                    new VisionGlobalPoseIOSim(
+                        Constants.VisionGlobalPose.backRightName,
+                        drive::getPose,
+                        Constants.VisionGlobalPose.backRightTransform),
+                    new VisionGlobalPoseIOSim(
+                        Constants.VisionGlobalPose.backLeftName,
+                        drive::getPose,
+                        Constants.VisionGlobalPose.backLeftTransform));
 
         visionObjectDetection =
             Constants.visionObjectDetection == Constants.SubsystemMode.DISABLED
