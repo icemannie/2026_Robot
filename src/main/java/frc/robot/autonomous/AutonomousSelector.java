@@ -1,5 +1,6 @@
 package frc.robot.autonomous;
 
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.autonomous.modes.CDepotOutpost;
@@ -78,24 +79,37 @@ public class AutonomousSelector {
             new Auto(AutoName.C_DEPOT_OUTPOST, new CDepotOutpost(drive, led, intake)),
             new Auto(
                 AutoName.DRIVE_WHEEL_RADIUS_CHARACTERIZATION,
-                new SequentialCommandGroup(DriveCommands.wheelRadiusCharacterization(drive))),
+                new SequentialCommandGroup(
+                    Commands.race(
+                        DriveCommands.wheelRadiusCharacterization(drive),
+                        Commands.waitSeconds(60)))),
             new Auto(
                 AutoName.DRIVE_SIMPLE_FF_CHARACTERIZATION,
                 new SequentialCommandGroup(DriveCommands.feedforwardCharacterization(drive))),
             new Auto(
                 AutoName.DRIVE_SYS_ID_QUASISTATIC_FORWARD,
                 new SequentialCommandGroup(
-                    drive.sysIdQuasistatic(SysIdRoutine.Direction.kForward))),
+                    Commands.race(
+                        drive.sysIdQuasistatic(SysIdRoutine.Direction.kForward),
+                        Commands.waitSeconds(5)))),
             new Auto(
                 AutoName.DRIVE_SYS_ID_QUASISTATIC_REVERSE,
                 new SequentialCommandGroup(
-                    drive.sysIdQuasistatic(SysIdRoutine.Direction.kReverse))),
+                    Commands.race(
+                        drive.sysIdQuasistatic(SysIdRoutine.Direction.kReverse),
+                        Commands.waitSeconds(5)))),
             new Auto(
                 AutoName.DRIVE_SYS_ID_DYNAMIC_FORWARD,
-                new SequentialCommandGroup(drive.sysIdDynamic(SysIdRoutine.Direction.kForward))),
+                new SequentialCommandGroup(
+                    Commands.race(
+                        drive.sysIdDynamic(SysIdRoutine.Direction.kForward),
+                        Commands.waitSeconds(5)))),
             new Auto(
                 AutoName.DRIVE_SYS_ID_DYNAMIC_REVERSE,
-                new SequentialCommandGroup(drive.sysIdDynamic(SysIdRoutine.Direction.kReverse))));
+                new SequentialCommandGroup(
+                    Commands.race(
+                        drive.sysIdDynamic(SysIdRoutine.Direction.kReverse),
+                        Commands.waitSeconds(5)))));
 
     for (Auto nextAuto : autos) {
       if (nextAuto.name == defaultAuto) {
