@@ -69,7 +69,7 @@ public final class Constants {
   public static final SubsystemMode ledMode = SubsystemMode.DISABLED;
   public static final SubsystemMode visionGlobalPose = SubsystemMode.NORMAL;
   public static final SubsystemMode visionObjectDetection = SubsystemMode.DISABLED;
-  public static final SubsystemMode firingManager = SubsystemMode.NORMAL;
+  public static final SubsystemMode firingManager = SubsystemMode.TUNING;
 
   public static class Drive {
     public static final int gyroID = 0;
@@ -322,12 +322,13 @@ public final class Constants {
       // Meters is center of turret to 3 inches behind center from hub
 
       // Shooting
-      putFiringMapEntryScoring(Units.inchesToMeters(48), new FiringParameters(45, 3.5, 1, 30, 7));
+      putFiringMapEntryScoring(Units.inchesToMeters(48), new FiringParameters(41, 3.5, 1, 30, 7));
       putFiringMapEntryScoring(
-          Units.inchesToMeters(210), new FiringParameters(55, 24, 1, 30, 7)); // Low lob
+          Units.inchesToMeters(210), new FiringParameters(53, 24, 1, 30, 7)); // Low lob
       // High Lob, putFiringMapEntryScoring(Units.inchesToMeters(210), new FiringParameters(60, 18,
       // 1, 20, 7));
       putFiringMapEntryScoring(Units.inchesToMeters(129), new FiringParameters(45, 16, 1, 30, 7));
+       putFiringMapEntryScoring(Units.inchesToMeters(164), new FiringParameters(49, 20, 1, 30, 7));
 
       // Passing
       putFiringMapEntryPassing(Units.inchesToMeters(144.5), new FiringParameters(39, 19, 1, 30, 7));
