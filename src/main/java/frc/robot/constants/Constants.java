@@ -318,16 +318,14 @@ public final class Constants {
       velocityToDistanceMapPassing.put(velocity, meters);
     }
 
-    static { // TODO tuning points will go here
-      // Meters is center of hub to 3 inches behind center from hub
+    static {
+      // Meters is center of turret to 3 inches behind center from hub
 
       // Shooting
-      // TODO fix the flywheel recovery
       putFiringMapEntryScoring(Units.inchesToMeters(48), new FiringParameters(45, 3.5, 1, 30, 7));
       putFiringMapEntryScoring(
           Units.inchesToMeters(210), new FiringParameters(55, 24, 1, 30, 7)); // Low lob
-      // High Lob, putFiringMapEntryScoring(Units.inchesToMeters(210), new FiringParameters(60, 18,
-      // 1, 20, 7));
+      // High Lob, putFiringMapEntryScoring(Units.inchesToMeters(210), new FiringParameters(60, 18, 1, 20, 7));
       putFiringMapEntryScoring(Units.inchesToMeters(129), new FiringParameters(45, 16, 1, 30, 7));
 
       // Passing
