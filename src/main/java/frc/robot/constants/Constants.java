@@ -334,7 +334,7 @@ public final class Constants {
     }
 
     public static final boolean alwaysTargetAllianceZone =
-        false; // TODO figure out what we want to do for this
+        true; 
   }
 
   public static class FiringTargetTranslations {
